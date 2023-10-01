@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://i.pinimg.com/originals/08/cc/66/08cc66cca6f975c721f6cf1aa481f238.jpg" />
+    <link rel="stylesheet" href="./adminpanel.css">
+    <title>Admin Panel</title>
+</head>
+<body>
+    <div id="dashboardmain">
+        <div id="sidebar">
+            <div id="listofoptions">
+                <li class="tabs__toggle is-active">Dashboard</li>
+                <li class="tabs__toggle">Users</li>
+                <li class="tabs__toggle">Admins</li>
+                <li class="tabs__toggle">Movies</li>
+            </div>
+        </div>
+        <div id="mainboard">
+            <div id="bottom">
+                
+                <div class="tabs__content is-active">
+                    <h2 class="tabs__title">Admin Dashboard</h2>
+                    <hr>
+                    <div id="admindash">
+                        <div>
+                            <div class="upper">
+                                <p>Total Movies</p>
+                                <p class="upperbot" id="todaySales">100</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="upper">
+                                <p>Bollywood Movies</p>
+                                <p class="upperbot" id="todaySales">20</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="upper">
+                                <p>HollyWood Movies</p>
+                                <p class="upperbot" id="todaySales">23</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="upper">
+                                <p>Horror Movies</p>
+                                <p class="upperbot" id="todaySales">27</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="upper">
+                                <p>Anime Movies</p>
+                                <p class="upperbot" id="todaySales">30</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tabs__content table_section">
+                    <h2 class="tabs__title">Users</h2>
+                    <hr>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Image</th>
+                                <th>FirstName</th>
+                                <th>LastName</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody id="showUsers">
+                            <tr>
+                                <td>1</td>
+                                <td>Image</td>
+                                <td>Moin</td>
+                                <td>Khan</td>
+                                <td>mk123@gmail.com</td>
+                            </tr>
+           
+                        </tbody>
+                       </table>
+
+                </div>
+                <div class="tabs__content table_section">
+                    <h2 class="tabs__title">Admins</h2>
+                    <hr>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Image</th>
+                                <th>FirstName</th>
+                                <th>LastName</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody id="showUsers">
+                            <tr>
+                                <td>1</td>
+                                <td>Image</td>
+                                <td>Abhinandan</td>
+                                <td>Rauniyar</td>
+                                <td>rk123@gmail.com</td>
+                            </tr>
+           
+                        </tbody>
+                       </table>
+
+                </div>
+                <div class="tabs__content">
+                    <div class="operationofproducts">
+                        <li class="tabs_toggle is_active">View All Movies</li>
+                        <li class="tabs_toggle">Add Movie</li>
+                        <li class="tabs_toggle">Delete Movie</li>
+                    </div>
+                    <hr>
+                    <div class="tabs__body">
+                        <div class="tabs_content is_active table_section">
+                           <table>
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Release On</th>
+                                    <th>Rating</th>
+                                    <th>Duration</th>
+                                    <th>Category</th>
+                                </tr>
+                            </thead>
+                            <tbody id="showProduct">
+                                <tr>
+                                    <td>1</td>
+                                    <td><img src="https://i.ytimg.com/vi/YF1eYbfbH5k/maxresdefault.jpg" alt=""></td>
+                                    <td>Interstellar</td>
+                                    <td>2014</td>
+                                    <td>8.7/10.0</td>
+                                    <td>2h 49m</td>
+                                    <td>Science Fiction</td>
+                                </tr>
+                            </tbody>
+                           </table>
+
+                        </div>
+                        <div class="tabs_content">
+                            <div id="addProduct_">
+                                <input type="text" placeholder="Image Url" id="url">
+                                <input type="text" placeholder="Movie Name" id="name">
+                                <input type="text" placeholder="Movie Subtitles" id="subtitle">
+                                <input type="text" placeholder="Movie Quality" id="quality">
+                                <input type="text" placeholder="Movie Latest Or Old" id="latestOld">
+                                <input type="text" placeholder="Description" id="desc">
+                                <input type="text" placeholder="Release Date" id="release">
+                                <input type="text" placeholder="Rating" id="rating">
+                                <input type="text" placeholder="Languages Available" id="langauges">
+                                <input type="text" placeholder="Movie Duration" id="duration">
+                                <input type="text" placeholder="First Image Link" id="image1">
+                                <input type="text" placeholder="Second Image Link" id="image2">
+                                <input type="text" placeholder="Third Image Link" id="image3">
+                                <input type="text" placeholder="Forth Image Link" id="image4">
+                                <input type="text" placeholder="Fifth Image Link" id="image5">
+                                <input type="text" placeholder="Movie 480p Video Link" id="movie480">
+                                <input type="text" placeholder="Movie 720p Video Link" id="movie720">
+                                <input type="text" placeholder="Movie 1080p Video Link" id="movie1080">
+                                <select id="category">
+                                    <option>Category</option>
+                                    <option value="Comedy">Comedy</option>
+                                    <option value="Horror">Horror</option>
+                                </select>
+                                <button onclick="addMovie()">Add Movie</button>
+                            </div>
+                        </div>
+                       
+                        <div class="tabs_content">
+                            <div id="deleteproductdiv">
+                            <input type="text" placeholder="Movie Id" id="deleteProduct">
+                            <button onclick="deleteMovie()">Delete Movie</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="./adminpanel.js"></script>
