@@ -25,10 +25,10 @@
     height: auto;
     margin: auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 #listofoptions>li{
-    width: 23%;
+    width: 19%;
     padding-top: 10px;
     padding-bottom: 10px;
     border: 1px solid white;
@@ -265,6 +265,9 @@ thead th{
     border-radius: 10px;
     top: 0;
     position: sticky;
+}
+.complainId{
+    width: 15%;
 }
 th,td{
     text-align: center;
