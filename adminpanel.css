@@ -249,7 +249,6 @@
 /*-------  */
 .table_section{
     height: 494px;
-    overflow: auto;
 }
 table{
     width: 100%;
@@ -273,11 +272,14 @@ th,td{
     text-align: center;
     border-bottom: 1px solid rgb(255, 255, 255);
     padding: 10px 0;
-    font-size: 18px;
+    font-size: 22px;
     color:#FEA641;
 }
 td>img{
-    width: 120px;
-    height: 50px;
+    width: 50%;
     border-radius: 2px;
+    object-fit: cover;
+}
+.userImageLogo{
+    width: 15%;
 }

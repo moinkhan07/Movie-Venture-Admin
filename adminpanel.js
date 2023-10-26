@@ -138,3 +138,84 @@ const addMovie = async  () => {
 
 
 // ========================================================== Movie End ==========================================
+
+
+// ========================================================== User Start ==========================================
+let getUsers = async()=>{
+  let res = await fetch("http://localhost:8000/users");
+  let data = await res.json();
+  appendUsers(data);
+}
+getUsers();
+
+
+let appendUsers = (data)=>{
+  let container = document.getElementById("showUsers");
+  container.innerHTML = "";
+  data.forEach((el)=>{
+      let tr = document.createElement("tr");
+
+      let td1 = document.createElement("td");
+      td1.innerText = el.userId;
+
+      let td2 = document.createElement("td");
+      let img = document.createElement("img");
+      img.setAttribute("class","userImageLogo");
+      img.src = "https://cdn-icons-png.flaticon.com/512/456/456212.png";
+      td2.append(img);
+      
+      let td3 = document.createElement("td");
+      td3.innerText = el.firstName;
+      
+      let td4 = document.createElement("td");
+      td4.innerText = el.lastName;
+      
+      let td5 = document.createElement("td");
+      td5.innerText = el.userEmail;
+    
+      tr.append(td1,td2,td3,td4,td5);
+      container.append(tr);
+  })
+}
+
+// ========================================================== User End ==========================================
+// ========================================================== User Start ==========================================
+let getAdmin = async()=>{
+  let res = await fetch("http://localhost:8000/admins");
+  let data = await res.json();
+  appendAdmins(data);
+  console.log(data);
+}
+getAdmin();
+
+
+let appendAdmins = (data)=>{
+  let container = document.getElementById("showAdmin");
+  container.innerHTML = "";
+  data.forEach((el)=>{
+      let tr = document.createElement("tr");
+
+      let td1 = document.createElement("td");
+      td1.innerText = el.adminId;
+
+      let td2 = document.createElement("td");
+      let img = document.createElement("img");
+      img.setAttribute("class","userImageLogo");
+      img.src = "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png";
+      td2.append(img);
+      
+      let td3 = document.createElement("td");
+      td3.innerText = el.firstName;
+      
+      let td4 = document.createElement("td");
+      td4.innerText = el.lastName;
+      
+      let td5 = document.createElement("td");
+      td5.innerText = el.adminEmail;
+    
+      tr.append(td1,td2,td3,td4,td5);
+      container.append(tr);
+  })
+}
+
+// ========================================================== User End ==========================================
