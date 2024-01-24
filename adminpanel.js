@@ -32,7 +32,7 @@ t.forEach((tab,index)=>{
 });
 // ==========================================================Complain Start ==========================================
 let getComplain = async()=>{
-    let res = await fetch("http://localhost:8000/complains");
+    let res = await fetch("http://movieventure-env.eba-kxacerts.eu-north-1.elasticbeanstalk.com/complains");
     let data = await res.json();
     appendData(data);
     console.log(data);
@@ -81,7 +81,7 @@ const addMovie = async  () => {
       imageUrl4: document.getElementById("image4").value,
       imageUrl5: document.getElementById("image5").value,
     };
-    let res = await fetch("http://localhost:8000/movies", {
+    let res = await fetch("http://movieventurewebapp.eu-north-1.elasticbeanstalk.com/movies", {
       method: "POST",
       body: JSON.stringify(add_movie),
       headers: {
@@ -89,13 +89,34 @@ const addMovie = async  () => {
       },
     });
     let data = await res.json();
-    console.log(data);
+    document.getElementById("url").value = "";
+    document.getElementById("category").value = "";
+    document.getElementById("name").value = "";
+    document.getElementById("subtitle").value = "";
+    document.getElementById("quality480").value = "";
+    document.getElementById("quality720").value = "";
+    document.getElementById("quality1080").value = "";
+    document.getElementById("latestOld").value = "";
+    document.getElementById("desc").value = "";
+    document.getElementById("release").value = "";
+    document.getElementById("rating").value = "";
+    document.getElementById("langauges").value = "";
+    document.getElementById("duration").value = "";
+    document.getElementById("movie480").value = "";
+    document.getElementById("movie720").value = "";
+    document.getElementById("movie1080").value ="";
+    document.getElementById("image1").value="";
+    document.getElementById("image2").value="";
+    document.getElementById("image3").value="";
+    document.getElementById("image4").value="";
+    document.getElementById("image5").value="";
+    window.alert("Added movie!");
     getMovies();
   };
 
 
   let getMovies = async()=>{
-    let res = await fetch("http://localhost:8000/movies");
+    let res = await fetch("http://movieventurewebapp.eu-north-1.elasticbeanstalk.com/movies");
     let data = await res.json();
     appendMovies(data);
     console.log(data);
@@ -142,7 +163,7 @@ const addMovie = async  () => {
 
 // ========================================================== User Start ==========================================
 let getUsers = async()=>{
-  let res = await fetch("http://localhost:8000/users");
+  let res = await fetch("http://movieventurewebapp.eu-north-1.elasticbeanstalk.com/users");
   let data = await res.json();
   appendUsers(data);
 }
@@ -181,7 +202,7 @@ let appendUsers = (data)=>{
 // ========================================================== User End ==========================================
 // ========================================================== User Start ==========================================
 let getAdmin = async()=>{
-  let res = await fetch("http://localhost:8000/admins");
+  let res = await fetch("http://movieventurewebapp.eu-north-1.elasticbeanstalk.com/admins");
   let data = await res.json();
   appendAdmins(data);
   console.log(data);

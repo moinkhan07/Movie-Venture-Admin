@@ -10,7 +10,7 @@ const adminlogin = async ()=>{
         window.alert("Please enter your password!")
         return;
     }
-    let res = await fetch("http://localhost:8000/adminlogin", {
+    let res = await fetch("http://movieventurewebapp.eu-north-1.elasticbeanstalk.com/adminlogin", {
         method: "POST",
         body: JSON.stringify(adminCredentials),
         headers: {
