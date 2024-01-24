@@ -8,4 +8,5 @@ const adminlogin = async ()=>{
     }
      document.getElementById("loginemail").value ="";
      document.getElementById("loginpass").value = "";
+     window.location.href = "./adminpanel.html";
 }
