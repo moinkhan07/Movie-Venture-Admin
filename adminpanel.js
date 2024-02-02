@@ -32,7 +32,7 @@ t.forEach((tab,index)=>{
 });
 // ==========================================================Complain Start ==========================================
 let getComplain = async()=>{
-    let res = await fetch("http://movieventure-env.eba-kxacerts.eu-north-1.elasticbeanstalk.com/complains");
+    let res = await fetch("https://api.movieventure.xyz/api/complains");
     let data = await res.json();
     appendData(data);
     console.log(data);
@@ -58,6 +58,14 @@ let getComplain = async()=>{
 // ========================================================== Movie start ==========================================
 
 const addMovie = async  () => {
+  const requiredFields = ["url", "category", "name","subtitle" ,"quality480", "quality720", "quality1080", "latestOld", "desc", "release", "rating", "langauges", "duration", "movie480", "movie720", "movie1080", "image1", "image2", "image3", "image4", "image5"];
+
+    for (const field of requiredFields) {
+        if (!document.getElementById(field).value) {
+            window.alert("Please fill in all required fields");
+            return; // Stop the function if any required field is empty
+        }
+    }
     let add_movie = {
       moviesImageUrl: document.getElementById("url").value,
       movieCategory: document.getElementById("category").value,
@@ -81,42 +89,34 @@ const addMovie = async  () => {
       imageUrl4: document.getElementById("image4").value,
       imageUrl5: document.getElementById("image5").value,
     };
-    let res = await fetch("http://movieventurewebapp.eu-north-1.elasticbeanstalk.com/movies", {
-      method: "POST",
-      body: JSON.stringify(add_movie),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    let data = await res.json();
-    document.getElementById("url").value = "";
-    document.getElementById("category").value = "";
-    document.getElementById("name").value = "";
-    document.getElementById("subtitle").value = "";
-    document.getElementById("quality480").value = "";
-    document.getElementById("quality720").value = "";
-    document.getElementById("quality1080").value = "";
-    document.getElementById("latestOld").value = "";
-    document.getElementById("desc").value = "";
-    document.getElementById("release").value = "";
-    document.getElementById("rating").value = "";
-    document.getElementById("langauges").value = "";
-    document.getElementById("duration").value = "";
-    document.getElementById("movie480").value = "";
-    document.getElementById("movie720").value = "";
-    document.getElementById("movie1080").value ="";
-    document.getElementById("image1").value="";
-    document.getElementById("image2").value="";
-    document.getElementById("image3").value="";
-    document.getElementById("image4").value="";
-    document.getElementById("image5").value="";
-    window.alert("Added movie!");
-    getMovies();
+    try {
+      let res = await fetch("https://api.movieventure.xyz/api/movies", {
+          method: "POST",
+          body: JSON.stringify(add_movie),
+          headers: {
+              "Content-Type": "application/json",
+          },
+      });
+
+      if (res.status === 201) {
+          // Movie added successfully, clear input fields
+          for (const field of requiredFields) {
+              document.getElementById(field).value = "";
+          }
+          window.alert("Added movie!");
+          getMovies();
+      } else {
+          window.alert("Failed to add movie. Please try again.");
+      }
+     } catch (error) {
+          window.alert("An error occurred. Please try again later.");
+      }
+    
   };
 
 
   let getMovies = async()=>{
-    let res = await fetch("http://movieventurewebapp.eu-north-1.elasticbeanstalk.com/movies");
+    let res = await fetch("https://api.movieventure.xyz/api/movies");
     let data = await res.json();
     appendMovies(data);
     console.log(data);
@@ -163,7 +163,7 @@ const addMovie = async  () => {
 
 // ========================================================== User Start ==========================================
 let getUsers = async()=>{
-  let res = await fetch("http://movieventurewebapp.eu-north-1.elasticbeanstalk.com/users");
+  let res = await fetch("https://api.movieventure.xyz/api/users");
   let data = await res.json();
   appendUsers(data);
 }
@@ -202,7 +202,7 @@ let appendUsers = (data)=>{
 // ========================================================== User End ==========================================
 // ========================================================== User Start ==========================================
 let getAdmin = async()=>{
-  let res = await fetch("http://movieventurewebapp.eu-north-1.elasticbeanstalk.com/admins");
+  let res = await fetch("https://api.movieventure.xyz/api/admins");
   let data = await res.json();
   appendAdmins(data);
   console.log(data);
